@@ -38,9 +38,10 @@ Video generation with a single image as input. More details can be found in the 
 ### Notes:
 In pytorch 1.0, **running_mean** and **running_var** are not saved for the **Instance Normalization layer** by default. To reproduce our result in the paper, launch ``python tool/rm_insnorm_running_vars.py`` to remove corresponding keys in the pretrained model. (Only for the DeepFashion dataset.)
 
-
+<!---
 <img src='imgs/results.png' width=800>
-
+-->
+<!---
 This is Pytorch implementation for pose transfer on both Market1501 and DeepFashion dataset. The code is written by [Tengteng Huang](https://github.com/tengteng95) and [Zhen Zhu](https://github.com/jessemelpolio).
 -->
 
