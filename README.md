@@ -1,4 +1,5 @@
 # Pose-Transfer
+<!---
 Code for the paper **Progressive Pose Attention for Person Image Generation** in **CVPR19(Oral)**. The paper is available [here](http://arxiv.org/abs/1904.03349). 
 
 <p float="center">
@@ -206,3 +207,5 @@ If you use this code for your research, please cite our paper.
 
 ### Acknowledgments
 Our code is based on the popular [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
+
+-->
