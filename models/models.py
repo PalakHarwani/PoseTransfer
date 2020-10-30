@@ -1,3 +1,9 @@
+# imports pytorch
+import torch
+
+# imports the torch_xla package
+import torch_xla
+import torch_xla.core.xla_model as xm
 
 def create_model(opt):
     model = None
@@ -6,7 +12,8 @@ def create_model(opt):
     if opt.model == 'PATN':
         assert opt.dataset_mode == 'keypoint'
         from .PATN import TransferModel
-        model = TransferModel()
+        second_dev = xm.xla_device(n=2, devkind='TPU')
+        model = TransferModel().to(second_dev)
 
     else:
         raise ValueError("Model [%s] not recognized." % opt.model)
