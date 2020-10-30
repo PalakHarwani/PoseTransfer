@@ -1,5 +1,10 @@
 import torch.utils.data
 from data.base_data_loader import BaseDataLoader
+import torch
+
+# imports the torch_xla package
+import torch_xla
+import torch_xla.core.xla_model as xm
 
 
 def CreateDataset(opt):
@@ -24,11 +29,12 @@ class CustomDatasetDataLoader(BaseDataLoader):
     def initialize(self, opt):
         BaseDataLoader.initialize(self, opt)
         self.dataset = CreateDataset(opt)
+        dev = xm.xla_device()
         self.dataloader = torch.utils.data.DataLoader(
             self.dataset,
             batch_size=opt.batchSize,
             shuffle=not opt.serial_batches,
-            num_workers=int(opt.nThreads))
+            num_workers=int(opt.nThreads)).to(dev)
 
     def load_data(self):
         return self
